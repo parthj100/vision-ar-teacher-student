@@ -5,7 +5,7 @@ Vision-based experiment using CNN models for realistic AR scenarios. Demonstrate
 
 ---
 
-## 📋 Overview
+## Overview
 
 **Task:** Visual object localization in egocentric-like view (simulates AR wayfinding)
 
@@ -185,59 +185,8 @@ Total: 26,020 parameters
 
 ---
 
-## Comparison with Gridworld
 
-| Aspect | Gridworld | Vision AR |
-|--------|-----------|-----------|
-| **Input** | 4 numbers | 32×32 RGB image |
-| **Input Size** | 16 bytes | 3,072 bytes |
-| **Teacher** | PPO MLP (1K) | DQN CNN (420K) |
-| **Student** | MLP (1.6K) | CNN (26K) |
-| **Compression** | 1.5x | **16x** |
-| **Bandwidth Cost** | Negligible | **Significant** |
-| **Realism** | Toy problem | **AR-like** |
-| **Training Time** | 30 seconds | 5-10 minutes |
-
-**Vision AR is much closer to real-world applications!**
-
----
-
-## 📈 Scaling to Production AR
-
-This experiment provides a foundation for real AR systems. To scale further:
-
-### 1. Use Pre-trained Models
-- **Teacher:** MobileNetV2, ResNet-18, EfficientNet
-- **Student:** MobileNetV3-Small, EfficientNet-Lite
-
-### 2. Larger Visual Inputs
-- Increase to 64×64 or 128×128 images
-- Use ImageNet pre-training
-
-### 3. Real AR Tasks
-- Object detection (YOLO-based)
-- Semantic segmentation (DeepLab)
-- 6DoF pose estimation
-
-### 4. Advanced Distillation
-- Feature-based distillation (intermediate layers)
-- Progressive distillation (multi-stage)
-- Quantization (INT8) for mobile
-
-### 5. Real Datasets
-- **Ego4D:** Egocentric video understanding
-- **EPIC-KITCHENS:** First-person action recognition
-- **Assembly101:** Procedural task learning
-- **ARKit/ARCore:** Real AR camera feeds
-
-### 6. Production Deployment
-- Export to Core ML (iOS)
-- Export to TensorFlow Lite (Android)
-- Measure on actual devices
-
----
-
-## 🔬 Research Contributions
+## Research Contributions
 
 This experiment demonstrates:
 
@@ -248,7 +197,7 @@ This experiment demonstrates:
 
 ---
 
-## 📚 References
+## References
 
 ### Mobile Vision Models
 - Howard et al. "MobileNets" (2017)
