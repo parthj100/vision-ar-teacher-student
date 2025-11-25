@@ -1,9 +1,3 @@
-"""
-AR Vision Environment
-Simulates a visual object localization task similar to real AR scenarios.
-Agent receives camera-like images and must navigate to target objects.
-"""
-
 import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
@@ -14,16 +8,7 @@ from PIL import Image
 
 
 class ARVisionEnv(gym.Env):
-    """
-    Simulated AR environment with visual observations.
-    
-    Task: Agent sees a rendered scene and must navigate to a target object.
-    Similar to AR wayfinding or object interaction tasks.
-    
-    Observations: 64x64 RGB images (simulating camera feed)
-    Actions: 4 directions (forward, back, left, right)
-    """
-    
+
     metadata = {"render_modes": ["rgb_array", "human"]}
     
     def __init__(self, grid_size=10, image_size=64, max_steps=30, num_objects=3):
@@ -170,10 +155,7 @@ class ARVisionEnv(gym.Env):
 
 
 class ARVisionEnvSimple(ARVisionEnv):
-    """
-    Simpler version with smaller images for faster training.
-    Use this for initial experiments.
-    """
+ 
     def __init__(self):
         super().__init__(grid_size=8, image_size=32, max_steps=20, num_objects=2)
 
