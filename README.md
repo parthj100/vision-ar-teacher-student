@@ -13,7 +13,7 @@ Vision-based experiment using CNN models for realistic AR scenarios. Demonstrate
 
 ---
 
-## 🎯 Approach
+## Approach
 
 ### Teacher (Cloud/Edge Server)
 - **Model:** Custom CNN (~420K parameters)
@@ -35,7 +35,7 @@ Vision-based experiment using CNN models for realistic AR scenarios. Demonstrate
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Setup Environment
 
@@ -73,14 +73,14 @@ python scripts/visualize_vision_agent.py
 | **Hybrid** | ~90% | ~10 | ~300 | 26K params |
 
 **Key Findings:**
-- 🚀 **50x latency reduction**
-- 📦 **16x model compression**
-- 📡 **100% bandwidth savings** (on-device mode)
-- ✅ **<5% quality degradation**
+-  **50x latency reduction**
+-  **16x model compression**
+-  **100% bandwidth savings** (on-device mode)
+-  **<5% quality degradation**
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 vision_ar_experiment/
@@ -101,7 +101,7 @@ vision_ar_experiment/
 
 ---
 
-## 🎓 What This Demonstrates
+## What This Demonstrates
 
 ### Why This Is AR-Relevant
 
@@ -122,7 +122,7 @@ vision_ar_experiment/
 
 ---
 
-## 🔬 Technical Details
+## Technical Details
 
 ### Environment
 
@@ -185,7 +185,7 @@ Total: 26,020 parameters
 
 ---
 
-## 🆚 Comparison with Gridworld
+## Comparison with Gridworld
 
 | Aspect | Gridworld | Vision AR |
 |--------|-----------|-----------|
@@ -248,77 +248,13 @@ This experiment demonstrates:
 
 ---
 
-## 🎯 Use Cases
-
-Perfect for research on:
-- **AR Navigation:** Wayfinding, object localization
-- **AR Assistance:** Step-by-step guidance
-- **AR Tracking:** Object/hand tracking
-- **Edge AI:** On-device vision models
-- **Federated Learning:** Privacy-preserving AR
-
----
-
-## 🐛 Troubleshooting
-
-**Teacher success rate < 80%?**
-- Increase `num_episodes` in `train_vision_teacher.py`
-- Adjust learning rate or epsilon decay
-
-**Student much worse than teacher?**
-- Collect more demonstrations (increase episodes)
-- Only use successful episodes for distillation
-- Train longer (more epochs)
-
-**Training too slow?**
-- Reduce image size to 16×16 in `ar_vision_env.py`
-- Use fewer objects (num_objects=2)
-- Reduce model sizes
-
-**Visualization not working?**
-- Images require matplotlib with backend
-- Check: `python -c "import matplotlib.pyplot as plt; plt.plot([1,2]); plt.show()"`
-
----
-
 ## 📚 References
-
-### Knowledge Distillation
-- Hinton et al. "Distilling the Knowledge in a Neural Network" (2015)
-- Romero et al. "FitNets: Hints for Thin Deep Nets" (2015)
 
 ### Mobile Vision Models
 - Howard et al. "MobileNets" (2017)
 - Sandler et al. "MobileNetV2" (2018)
 - Tan & Le "EfficientNet" (2019)
 
-### Reinforcement Learning
-- Mnih et al. "Human-level control through deep RL" (DQN, 2015)
-- Schulman et al. "Proximal Policy Optimization" (PPO, 2017)
-
 ### AR/Egocentric Vision
 - Grauman et al. "Ego4D: Around the World in 3,000 Hours" (2022)
 - Damen et al. "Scaling Egocentric Vision" (EPIC-KITCHENS, 2020)
-
----
-
-## 🚀 Next Steps
-
-1. **Run experiments** and collect results
-2. **Tune hyperparameters** for your use case
-3. **Extend to real AR** with Ego4D or ARKit
-4. **Scale models** using pre-trained weights
-5. **Deploy to mobile** and measure on-device
-
----
-
-## ✨ Ready for Production
-
-This codebase provides:
-- ✅ End-to-end pipeline
-- ✅ Realistic metrics
-- ✅ Extensible architecture
-- ✅ Production-ready patterns
-
-**Perfect foundation for AR research!** 🎯📱
-
