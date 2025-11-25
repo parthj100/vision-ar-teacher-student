@@ -1,10 +1,10 @@
 # Performance Analysis - Vision AR Experiment
 
-## 📊 Confusion Matrix & Classification Metrics
+## Confusion Matrix & Classification Metrics
 
 ---
 
-## 🎯 Overall Results
+## Overall Results
 
 ### **Action Prediction Accuracy: 22.39%**
 
@@ -15,7 +15,7 @@
 
 ---
 
-## 📈 Per-Action Metrics
+## Per-Action Metrics
 
 | Action | Precision | Recall | F1-Score | Support |
 |--------|-----------|--------|----------|---------|
@@ -28,7 +28,7 @@
 
 ---
 
-## 🤔 What These Metrics Mean
+## What These Metrics Mean
 
 ### **Precision**
 > "When the student predicts action X, how often is it correct?"
@@ -60,7 +60,7 @@
 
 ---
 
-## 📉 Action Distribution Analysis
+## Action Distribution Analysis
 
 ### **Teacher Actions:**
 ```
@@ -84,7 +84,7 @@ Forward:     2  ( 0.1%)  ← Almost never used
 
 ---
 
-## 🔍 Why Are These Metrics Low?
+## Why Are These Metrics Low?
 
 ### **1. RL vs Classification**
 - This is NOT a classification task!
@@ -110,7 +110,7 @@ Forward:     2  ( 0.1%)  ← Almost never used
 
 ---
 
-## ✅ What Actually Matters
+## What Actually Matters
 
 ### **Task Performance (More Important):**
 
@@ -125,7 +125,7 @@ Forward:     2  ( 0.1%)  ← Almost never used
 
 ---
 
-## 🎯 Why This is Actually Good
+## Why This is Actually Good
 
 ### **1. Student Outperforms Teacher**
 - Despite only 22% action agreement
@@ -145,7 +145,7 @@ Two drivers going to the same destination:
 
 ---
 
-## 📊 Confusion Matrix Insights
+## Confusion Matrix Insights
 
 The confusion matrix (saved as `results/analysis/vision_confusion_matrix.png`) shows:
 
@@ -164,7 +164,7 @@ The confusion matrix (saved as `results/analysis/vision_confusion_matrix.png`) s
 
 ---
 
-## 🎓 Academic Interpretation
+## Academic Interpretation
 
 ### **For Your Paper:**
 
@@ -173,88 +173,3 @@ The confusion matrix (saved as `results/analysis/vision_confusion_matrix.png`) s
 
 **Correct View:**
 > "Despite 22% action-level agreement, the student model achieved superior task performance (13% vs 11% success rate) with 16× compression and 39× speedup. This demonstrates that behavioral cloning in visual RL can discover policies superior to the teacher, as the student learns to exploit regularities without exploration noise."
-
----
-
-## 📈 Comparison with Literature
-
-| Work | Task | Action Accuracy | Task Performance |
-|------|------|-----------------|------------------|
-| **Hinton 2015** | Classification | 95% | Teacher-level |
-| **Policy Distillation** | Atari | 60-80% | Near teacher |
-| **Ours (Vision AR)** | Navigation | 22% | **Exceeds teacher** |
-
-**Our finding:** Action accuracy can be low while task performance is high in sequential decision tasks!
-
----
-
-## 🔬 Technical Explanation
-
-### **Why Low Action Accuracy is OK:**
-
-1. **Multi-Modal Policies:**
-   ```
-   Same state can have multiple good actions:
-   State: Agent far from goal
-   ✅ Forward (direct path)
-   ✅ Left then Forward (indirect path)
-   Both reach goal, different actions!
-   ```
-
-2. **Exploration vs Exploitation:**
-   ```
-   Teacher (with epsilon):
-     State S → [30% Left, 30% Forward, 20% Right, 20% Back]
-   
-   Student (deterministic):
-     State S → [100% Left]
-   
-   Action agreement: 30%
-   Task success: Both reach goal!
-   ```
-
-3. **Stochastic Environments:**
-   - Same visual input, different true positions
-   - Student generalizes, teacher memorizes
-   - Different strategies, same outcomes
-
----
-
-## 💡 Key Takeaways
-
-1. ✅ **22% action accuracy is NOT bad** for visual RL
-2. ✅ **Task performance matters more** than action mimicry
-3. ✅ **Student surpassed teacher** (+2% success)
-4. ✅ **Distillation can improve** upon imperfect teachers
-5. ✅ **Compression works** (16× smaller, better performance)
-
----
-
-## 📁 Generated Files
-
-- `results/analysis/vision_confusion_matrix.png` - Visual confusion matrix
-- `results/analysis/vision_action_distribution.png` - Action distribution comparison
-- This document - Detailed analysis
-
----
-
-## 🚀 Next Steps
-
-1. **Visualize episodes** - See what student actually does
-2. **More training data** - Reduce action bias
-3. **Larger images** - Better visual discrimination
-4. **Feature distillation** - Transfer intermediate representations
-5. **Scale to Ego4D** - Real-world AR datasets
-
----
-
-## 📚 References
-
-- Hinton et al. (2015) - "Distilling the Knowledge in a Neural Network"
-- Rusu et al. (2016) - "Policy Distillation"
-- Czarnecki et al. (2019) - "Distilling Policy Distillation"
-
----
-
-**Bottom Line:** Your results are strong! Low action accuracy with high task performance is a feature, not a bug. 🎯
-
