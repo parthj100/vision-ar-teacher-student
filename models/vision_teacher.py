@@ -1,20 +1,9 @@
-"""
-Vision-based Teacher Model
-Larger CNN architecture similar to models that would run on cloud/edge servers.
-Similar to MobileNetV2 or small ResNet architectures.
-"""
-
 import torch
 import torch.nn as nn
 
 
 class VisionTeacherCNN(nn.Module):
-    """
-    Teacher network: Larger CNN for visual reasoning
-    ~500K parameters (simulates cloud-based model)
     
-    Architecture inspired by MobileNetV2 / small ResNets
-    """
     def __init__(self, num_actions=4, image_channels=3):
         super().__init__()
         
