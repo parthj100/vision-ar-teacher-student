@@ -1,21 +1,9 @@
-"""
-Vision-based Student Model
-Lightweight CNN for on-device inference (mobile/edge).
-Designed to be distilled from the teacher.
-"""
-
 import torch
 import torch.nn as nn
 
 
 class VisionStudentCNN(nn.Module):
-    """
-    Student network: Lightweight CNN for mobile deployment
-    ~50K parameters (10x smaller than teacher)
-    
-    Architecture inspired by MobileNet-Nano / SqueezeNet
-    Optimized for low latency and small model size
-    """
+
     def __init__(self, num_actions=4, image_channels=3):
         super().__init__()
         
